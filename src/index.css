@@ -1,0 +1,104 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
+
+  /* Warm bakery palette */
+  --color-cream: #f8f4eb;
+  --color-warm-white: #f9f6f0;
+  --color-flour: #e8e0d1;
+  --color-brown: #3c2f2f;
+  --color-deep-brown: #2c211f;
+  --color-terracotta: #8c5f3d;
+  --color-gold: #c9a06b;
+  --color-sage: #6b7f5d;
+  --color-clay: #a67c52;
+}
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-cream);
+  color: var(--color-brown);
+}
+
+h1, h2, h3, .serif {
+  font-family: var(--font-serif);
+}
+
+/* Smooth scrolling for anchor nav */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom button styles */
+.btn {
+  @apply inline-flex items-center justify-center px-6 py-3 rounded-md font-medium transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2;
+}
+
+.btn-primary {
+  @apply bg-brown text-cream hover:bg-deep-brown active:bg-deep-brown focus-visible:ring-brown;
+}
+
+.btn-secondary {
+  @apply bg-transparent border-2 border-brown text-brown hover:bg-brown hover:text-cream focus-visible:ring-brown;
+}
+
+.btn-gold {
+  @apply bg-gold text-deep-brown hover:bg-clay hover:text-cream focus-visible:ring-gold;
+}
+
+/* Card styles */
+.card {
+  @apply bg-white rounded-xl shadow-sm border border-flour overflow-hidden transition-shadow duration-200 hover:shadow-md;
+}
+
+/* Menu item */
+.menu-item {
+  @apply bg-white rounded-lg p-5 border border-flour transition-all hover:border-gold/50 hover:-translate-y-0.5;
+}
+
+/* Gallery image */
+.gallery-img {
+  @apply w-full h-full object-cover transition-transform duration-500 group-hover:scale-105;
+}
+
+/* Navbar */
+.nav-link {
+  @apply text-brown/80 hover:text-brown transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-terracotta after:transition-all hover:after:w-full;
+}
+
+.nav-link.active {
+  @apply text-brown after:w-full;
+}
+
+/* Cart */
+.cart-item {
+  @apply flex gap-4 py-4 border-b border-flour last:border-0;
+}
+
+/* Modal */
+.modal {
+  @apply fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm;
+}
+
+.modal-content {
+  @apply bg-white rounded-2xl max-w-lg w-full max-h-[90vh] overflow-auto shadow-xl;
+}
+
+/* Hours table */
+.hours-table td {
+  @apply py-1.5 pr-4;
+}
+
+/* Responsive tweaks */
+@media (max-width: 640px) {
+  .hero-title {
+    font-size: 2.75rem;
+    line-height: 1.05;
+  }
+}
